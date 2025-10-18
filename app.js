@@ -11,7 +11,9 @@ console.log("connected successfully")
 app.use(express.json())
 const port=3000
 
-
+app.get("/",(req,res)=>{
+    res.send("Hellooooo")
+})
 app.get("/hello",(req,res)=>{
     res.json({
         name:req.body.name,
