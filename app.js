@@ -1,5 +1,7 @@
 const express=require("express")
 const app=express()
+app.set("view engine","ejs")
+app.set("views",__dirname + "/views")
 const mongoose=require("mongoose")
 const Article=require("./models/Article")
 mongoose.connect("mongodb+srv://AliAlkhatib10:AliAlkhatib2003@myfirstcluster.r46sloy.mongodb.net/?retryWrites=true&w=majority&appName=MyFirstCluster")
