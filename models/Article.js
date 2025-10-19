@@ -14,3 +14,4 @@ module.exports=Article
 //  <% for( let art of AllArticles:) { %>
 // <%=art.body %>
 // <% } %>
+// <%= art.title%>
