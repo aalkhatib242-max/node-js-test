@@ -5,7 +5,7 @@ app.set("views",__dirname + "/views")
 const mongoose=require("mongoose")
 const Article=require("./models/Article")
 mongoose.connect("mongodb+srv://AliAlkhatib10:AliAlkhatib2003@myfirstcluster.r46sloy.mongodb.net/?retryWrites=true&w=majority&appName=MyFirstCluster")
-.then(()=>{
+.then(()=>{ 
 console.log("connected successfully")
 }).catch((error)=>{
     console.log("error with connecting with the DB",error)
