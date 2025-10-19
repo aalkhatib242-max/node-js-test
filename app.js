@@ -12,7 +12,7 @@ app.use(express.json())
 const port=3000
 
 app.get("/",(req,res)=>{
-    res.send("Hellooooo")
+    res.render("Articles.ejs")
 })
 app.get("/hello",(req,res)=>{
     res.json({
@@ -85,12 +85,12 @@ app.delete("/Articles/:aa",async(req,res)=>{
     const delete_me=await Article.findByIdAndDelete(id)
     res.json(id)
 })
-app.get("/showArticles",async(req,res)=>{
-    const Articles=await Article.find()
-    res.render("Articles.ejs",{
-        AllArticles:Articles
-    })
-})
+// app.get("/showArticles",async(req,res)=>{
+//     const Articles=await Article.find()
+//     res.render("Articles.ejs",{
+//         AllArticles:Articles
+//     })
+// })
 app.listen(port,()=>{
     console.log(`server is running in port ${port}`)
 })

@@ -4,10 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body{
+    background-color: black;
+}
+div{
+    height: 100px;
+    width: 100px;
+    background-color: red;
+    border-radius: 20px;
+    animation-name: ALi ;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+
+}
+@keyframes ALi{
+    0%{
+        translate:0 0 ;
+        background-color: blue;
+        rotate: 0;
+    }
+25%{
+translate: 0 500px;
+background-color: blue;
+        rotate: 90deg;
+}
+50%{
+translate: 500px 500px;
+background-color: rgb(25, 159, 25);
+        rotate: 180deg;
+}
+75%{
+translate: 500px 0px;
+background-color: rgb(118, 7, 107);
+        rotate: 270deg;
+}
+100%{
+translate: 0px 0px;
+background-color: rgb(36, 36, 145);
+        rotate: 0deg;
+}
+}
+    </style>
 </head>
 <body>
     <h1>All Articles page:</h1>
-    <div style="color: blue;
+    <!-- <div style="color: blue;
     width: 50px;">
         <% for( let art of AllArticles:) { %>
         <h1 style="color: red;"> <%= art.title%> </h1>
@@ -15,6 +58,7 @@
         <br>
         <% } %>
 
-    </div>
+    </div> -->
+    <div></div>
 </body>
 </html>
