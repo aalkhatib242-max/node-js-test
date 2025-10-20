@@ -1,4 +1,5 @@
 const express=require("express")
+const bcrypt=require("bcrypt")
 const app=express()
 app.set("view engine","ejs")
 app.set("views",__dirname + "/views")
