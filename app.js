@@ -18,16 +18,16 @@ const port=3000
 app.get("/",(req,res)=>{
     res.render("Articles.ejs")
 })
-const users=[]
+
 app.post('/register', async(req,res)=>{
     try{
         const {email,password}=req.body
-        const  findUser=users.find((data)=>email==data.email)
+        const  findUser=User.find((data)=>email==data.email)
         if (findUser){
             res.status(400).send("wrong email or password!")
         }
         const hashedPassword=await bcrypt.hash(password,10)
-        users.push({email,password:hashedPassword})
+        User.push({email,password:hashedPassword})
         console.log(users)
         res.status(201).send('Registered successfully')
     }   catch (err) {
