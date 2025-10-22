@@ -19,22 +19,42 @@ app.get("/",(req,res)=>{
     res.render("Articles.ejs")
 })
 
-app.post('/register', async(req,res)=>{
-    try{
-        const {email,password}=req.body
-        const  findUser=User.find((data)=>email==data.email)
-        if (findUser){
-            res.status(400).send("wrong email or password!")
+// app.post('/register', async(req,res)=>{
+//     try{
+//         const {email,password}=req.body
+//         const  findUser=User.find((data)=>email==data.email)
+//         if (findUser){
+//             res.status(400).send("wrong email or password!")
+//         }
+//         const hashedPassword=await bcrypt.hash(password,10)
+//         User.push({email,password:hashedPassword})
+        
+//         res.status(201).send('Registered successfully')
+//     }   catch (err) {
+//         res.status(500).send({message:err.message}) 
+//         }
+//     }
+// )
+app.post('/register', async (req, res) => {
+    try {
+        const { email, password } = req.body;
+
+        const findUser = await User.findOne({ email });
+        if (findUser) {
+            return res.status(400).send("User already exists!");
         }
-        const hashedPassword=await bcrypt.hash(password,10)
-        User.push({email,password:hashedPassword})
-        console.log(User)
-        res.status(201).send('Registered successfully')
-    }   catch (err) {
-        res.status(500).send({message:err.message}) 
-        }
+
+        const hashedPassword = await bcrypt.hash(password, 10);
+        const newUser = new User({ email, password: hashedPassword });
+
+        await newUser.save();
+
+        res.status(201).send('Registered successfully');
+    } catch (err) {
+        res.status(500).send({ message: err.message });
     }
-)
+});
+
 app.post("/LogIn", async(req,res)=>{
     try{
         const {email,password}=req.body
