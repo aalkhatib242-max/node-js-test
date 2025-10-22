@@ -5,7 +5,7 @@ app.set("view engine","ejs")
 app.set("views",__dirname + "/views")
 const mongoose=require("mongoose")
 const User=require("./models/User")
-mongoose.connect("mongodb+srv://AliAlkhatib10:AliAlkhatib2003@myfirstcluster.r46sloy.mongodb.net/?retryWrites=true&w=majority&appName=MyFirstCluster"
+await mongoose.connect("mongodb+srv://AliAlkhatib10:AliAlkhatib2003@myfirstcluster.r46sloy.mongodb.net/?retryWrites=true&w=majority&appName=MyFirstCluster"
 )
 .then(()=>{  
 console.log("connected successfully")
